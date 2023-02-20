@@ -51,6 +51,7 @@ describe("Employee Manager 1.2", () => {
         await driver.findElement(By.name("nameEntry")).clear();
         await driver.findElement(By.name("nameEntry")).sendKeys("Test Name");
         await driver.findElement(By.name("employee3")).click();
+ //line 55 we had to use the const value instead of the declared const from above
         await driver.findElement(nameInput).click()
         await driver.wait(
             until.elementTextContains(
