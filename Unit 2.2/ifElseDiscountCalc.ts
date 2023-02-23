@@ -11,4 +11,4 @@ console.log("senior & moviememb", movieDiscountCalc (true, false, true));
 console.log("vets and resp workers", movieDiscountCalc(false, true, false))
 console.log("movie members works", movieDiscountCalc(false, false, true))
 console.log("no discount", movieDiscountCalc(false,false,false))
-
+// console.log is for printing out info in your terminal 

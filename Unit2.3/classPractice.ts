@@ -1,52 +1,53 @@
 class Employee {
-    id: number;
-    name: string;
-    phone: number;
-    email: string;
+    id: number; 
+    name: string; 
+    phone: number; 
+    email: string; 
 
-    constructor (id: number, name: string, phone: number, email: string) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.email = email
+    constructor(id:number, name:string, phone: number, email: string) {
+       this.id = id; 
+       this.name = name; 
+       this.phone = phone; 
+       this.email = email;  
     }
     toString(): string {
         let output = 
-        `Employee record --- ID: ${this.id}\n` +
+        `Employee Record --- ID: ${this.id}\n` +
         `Name: ${this.name}\n` +
-        `Contact info\n` +
-        `\thhone: ${this.phone}\n` +
-        `\tEmail ${this.email}\n` +
+        `Contact Information\n` +
+        `\tPhone: ${this.phone}\n` +
+        `\tEmail: ${this.email}\n`
+        return output
     }
 }
 
-let firstEmployee = new Employee (
+let firstEmployee = new Employee(
     1,
-    "cool dude",
+    "Jane Doe", 
     5555555555,
-    "email@email.com"
+    "i<3QA@devmountainrules.com"
 );
 
 console.log(firstEmployee.toString())
 
 class Birb {
-    name: string;
-    canFly: boolean;
-    hasFeathers: boolean = true;
+    name: string; 
+    canFly: boolean; 
+    hasFeathers: boolean = true; 
 
-    constructor (name: string, canFly: boolean) {
-        this.name = name;
+    constructor(name: string, canFly: boolean) {
+        this.name = name; 
         this.canFly = canFly
     }
 }
 
 let birbs: Array<Birb> = [
-    new Birb ("bird 1", true),
-    new Birb ("bird 2", true),
-    new Birb ("not a bird", false),
-    new Birb ("not a bird 2", false)
+    new Birb("Toucan", true),
+    new Birb("Penguin", false), 
+    new Birb("Pidgeon", true), 
+    new Birb("Emu", false)
 ]
 
-birbs.forEach((item: Birb) =>{
+birbs.forEach((item: Birb) => {
     console.log(item)
 })
