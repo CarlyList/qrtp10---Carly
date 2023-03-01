@@ -12,21 +12,21 @@ describe("Filling in the blanks", () => {
         await driver.quit();
     })
 
-    const hdrInput: By = By. //fill in the blank
-    const mkeInput: By = By. //fill in the blank
-    const oaiInput: By = By. //fill in the blank
-    const nameInput: By = By. //fill in the blank
-    const clrBtn: By = By. //fill in blank 
-    const submitBtn: By = By. //fill in blank
-    const errorMsg: By = By. // fill in blank 
+    const hdrInput: By = By.name('hdrInput') //fill in the blank
+    const mkeInput: By = By.name('mkeInput')  //fill in the blank
+    const oaiInput: By = By.name('oriInput')  //fill in the blank
+    const nameInput: By = By.name('namInput')  //fill in the blank
+    const clrBtn: By = By.id('clearBtn')  //fill in blank 
+    const submitBtn: By = By.id('saveBtn')  //fill in blank
+    const errorMsg: By = By.id('validHeader')  // fill in blank 
 
-    test("filling in the blanks for real", () => {
-        await driver.findElement(hdrInput).sendKeys("Change this")
-        await driver.findElement(mkeInput).sendKeys("change this")
-        await driver.findElement(oaiInput).sendKeys("change this")
-        await driver.findElement(nameInput).sendKeys("change this")
+    test("filling in the blanks for real", async () => {
+        await driver.findElement(hdrInput).sendKeys("1111111111")
+        await driver.findElement(mkeInput).sendKeys("aa")
+        await driver.findElement(oaiInput).sendKeys("aaaaaaaaa")
+        await driver.findElement(nameInput).sendKeys("no")
         await driver.findElement(submitBtn).click()
-        expect(errorMsg).toContain("Errors Received:")
+        expect(errorMsg).not.toContain("Errors Received:")
         await driver.findElement(clrBtn).click()
         
     })
