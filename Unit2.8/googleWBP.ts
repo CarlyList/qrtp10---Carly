@@ -1,18 +1,26 @@
-import {By} from 'selenium-webdriver'
-import {BasePage} from './basePage'
+import {Google} from './googleBP'
+import { Driver } from 'selenium-webdriver/chrome'
+const fs = require('fs')
+const google = new Google()
 
-export class Google extends BasePage {
-    searchBar: By = By.name('q')
-    results: By = By.id('rso')
+test('do a search', async () => {
+    await google.navigate()
+    await google.search('Chicago Bears')
+    let text = await google.getResults()
+    expect(text).toContain('Chicago Bears')
+    await fs.writeFile(`${__dirname}/google.png`,
+     await google.driver.takeScreenshot(), "base64",
+     (e) => {
+         if (e) console.error(e)
+         else console.log('Save Succesful')
+     }
+     )
+    fs.writeFile(`${__dirname}/test.txt`, text, (e) => {
+        if (e) console.error(e)
+        else console.log('save Succesful')
+    })
 
-    constructor(){
-        super({url: 'https://www.google.com'})
-    }
-
-    async search(searchTerm: string) {
-        return this.setInput(this.searchBar, `${searchTerm}\n`)
-    }
-    async getResults() {
-        return this.getText(this.results)
-    }
- }
+})
+afterAll(async () => {
+    await google.driver.quit()
+})
